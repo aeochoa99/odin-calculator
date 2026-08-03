@@ -1,3 +1,9 @@
+const equation = {
+    constantOne: null,
+    operator: null,
+    constantTwo: null
+}
+
 function add(constantOne, constantTwo) {
     return constantOne + constantTwo;
 }
