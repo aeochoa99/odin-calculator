@@ -1,3 +1,5 @@
+let displayResult = document.querySelector("#result");
+
 const equation = {
     constantOne: null,
     operator: null,
@@ -30,4 +32,8 @@ function operate(constantOne, operator, constantTwo) {
     } else {
         divide(constantOne, constantTwo);
     }
+}
+
+function clearResult() {
+    displayResult.textContent = "";
 }
