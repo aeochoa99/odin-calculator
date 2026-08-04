@@ -8,6 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #08120A;
 }
 
 .main {
@@ -19,5 +20,100 @@ body {
 }
 
 .calc-container {
-    
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 400px;
+    width: 320px;
+    padding: 10px;
+    background-color: #102116;
+    border: 2px solid #23402B;
+}
+
+.display {
+    display: flex;
+    justify-content: flex-end;
+    height: 65px;
+    background-color: #001B00;
+    border: 2px solid #23402B;
+}
+
+.display > p {
+    font-size: 40px;
+    align-self: flex-end;
+    padding: 0px 5px 5px 0px;
+    color: #7CFF6B;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+div > button {
+    border: none;
+}
+
+.row-1, .row-2,
+.row-3, .row-4, 
+.row-5 {
+    display: flex;
+    gap: 5px;
+}
+
+.row-1 > button,
+.row-2 > button,
+.row-3 > button,
+.row-4 > button,
+.row-5 > button {
+    flex: 1;
+    padding: 10px 0px 10px 0px;
+    font-size: 24px;
+}
+
+.num {
+    background-color: #163A1D;
+    color: #D6FFE1;
+    border: 3px solid #23402B;
+}
+
+.operator {
+    background-color: #2E8B57;
+    color: #FFFFFF;
+    border: 3px solid #23402B;
+}
+
+#clear, #delete {
+    background-color: #8B2E2E;
+    color: #FFFFFF;
+    border: 3px solid #23402B;
+}
+
+#equals {
+    background-color: #32D74B;
+    color: #08120A;
+    border: 3px solid #23402B;
+}
+
+.num:hover {
+    background-color: #21542A;
+    color: #D6FFE1;
+    border: 3px solid #2F5C38;
+}
+
+.operator:hover {
+    background-color: #3FBF74;
+    border: 3px solid #52D98A;
+}
+
+#equals:hover {
+    background-color: #52F86A;
+    border: 3px solid #6BFF86;
+}
+
+#clear:hover, 
+#delete:hover {
+    background-color: #B33A3A;
+    border: 3px solid #C94A4A;    
 }
