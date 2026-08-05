@@ -1,4 +1,5 @@
 const clearButton = document.querySelector("#clear");
+const numberButtons = document.querySelectorAll(".num");
 
 let displayResult = document.querySelector("#result");
 
@@ -40,4 +41,14 @@ function clearResult() {
     displayResult.textContent = "";
 }
 
+function updateDisplay(buttonContent) {
+    displayResult.textContent += buttonContent;
+}
+
 clearButton.addEventListener("click", clearResult);
+
+numberButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        updateDisplay(button.textContent);
+    });
+})
