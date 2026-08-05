@@ -1,3 +1,5 @@
+const clearButton = document.querySelector("#clear");
+
 let displayResult = document.querySelector("#result");
 
 const equation = {
@@ -37,3 +39,5 @@ function operate(constantOne, operator, constantTwo) {
 function clearResult() {
     displayResult.textContent = "";
 }
+
+clearButton.addEventListener("click", clearResult);
