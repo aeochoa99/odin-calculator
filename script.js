@@ -51,11 +51,17 @@ function updateDisplay(buttonContent) {
     if (equation.operator === null) {
         displayResult.textContent += buttonContent;
         equation.constantOne = displayResult.textContent;
+    } else {
+        displayResult.textContent += buttonContent;
+        if (equation.constantTwo === null) {
+            equation.constantTwo = "";
+        }
+        equation.constantTwo += buttonContent;
     }
 }
 
 function updateOperator(operator) {
-    displayResult.textContent += ` ${operator}`;
+    displayResult.textContent += ` ${operator} `;
     equation.operator = operator;
 }
 
