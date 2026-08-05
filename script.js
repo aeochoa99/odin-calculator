@@ -61,8 +61,14 @@ function updateDisplay(buttonContent) {
 }
 
 function updateOperator(operator) {
-    displayResult.textContent += operator;
-    equation.operator = operator;
+    if (equation.operator === null) {
+        displayResult.textContent += operator;
+        equation.operator = operator;
+    } else {
+        displayResult.textContent = displayResult.textContent.slice(0, -1);
+        displayResult.textContent += operator;
+        equation.operator = operator;
+    }
 }
 
 clearButton.addEventListener("click", clearResult);
