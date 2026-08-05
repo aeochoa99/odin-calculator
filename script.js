@@ -1,4 +1,5 @@
 const clearButton = document.querySelector("#clear");
+const deleteButton = document.querySelector("#delete");
 const numberButtons = document.querySelectorAll(".num");
 
 let displayResult = document.querySelector("#result");
@@ -41,11 +42,16 @@ function clearResult() {
     displayResult.textContent = "";
 }
 
+function deleteLastInput() {
+    displayResult.textContent = displayResult.textContent.slice(0, -1);
+}
+
 function updateDisplay(buttonContent) {
     displayResult.textContent += buttonContent;
 }
 
 clearButton.addEventListener("click", clearResult);
+deleteButton.addEventListener("click", deleteLastInput);
 
 numberButtons.forEach(button => {
     button.addEventListener("click", () => {
