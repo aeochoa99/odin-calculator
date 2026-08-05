@@ -61,7 +61,7 @@ function updateDisplay(buttonContent) {
 }
 
 function updateOperator(operator) {
-    displayResult.textContent += ` ${operator} `;
+    displayResult.textContent += operator;
     equation.operator = operator;
 }
 
