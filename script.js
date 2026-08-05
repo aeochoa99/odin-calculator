@@ -47,7 +47,10 @@ function deleteLastInput() {
 }
 
 function updateDisplay(buttonContent) {
-    displayResult.textContent += buttonContent;
+    if (equation.operator === null) {
+        displayResult.textContent += buttonContent;
+        equation.constantOne = displayResult.textContent;
+    }
 }
 
 clearButton.addEventListener("click", clearResult);
