@@ -1,6 +1,7 @@
 const clearButton = document.querySelector("#clear");
 const deleteButton = document.querySelector("#delete");
 const numberButtons = document.querySelectorAll(".num");
+const operatorButtons = document.querySelectorAll(".operator");
 
 let displayResult = document.querySelector("#result");
 
@@ -53,6 +54,11 @@ function updateDisplay(buttonContent) {
     }
 }
 
+function updateOperator(operator) {
+    displayResult.textContent += ` ${operator}`;
+    equation.operator = operator;
+}
+
 clearButton.addEventListener("click", clearResult);
 deleteButton.addEventListener("click", deleteLastInput);
 
@@ -60,4 +66,10 @@ numberButtons.forEach(button => {
     button.addEventListener("click", () => {
         updateDisplay(button.textContent);
     });
+})
+
+operatorButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        updateOperator(button.textContent);
+    })
 })
