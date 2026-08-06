@@ -44,17 +44,16 @@ function clearResult() {
 }
 
 function deleteLastInput() {
+    displayResult.textContent = displayResult.textContent.slice(0, -1);
+
     if (equation.operator === null) {
-        displayResult.textContent = displayResult.textContent.slice(0, -1);
         equation.constantOne = equation.constantOne.slice(0, -1);
         if (equation.constantOne.length === 0) {
             equation.constantOne = null;
         }
-    } else if (equation.operator != null && equation.constantTwo === null) {
-        displayResult.textContent = displayResult.textContent.slice(0, -1);
+    } else if (equation.constantTwo === null) {
         equation.operator = null;
     } else {
-        displayResult.textContent = displayResult.textContent.slice(0, -1);
         equation.constantTwo = equation.constantTwo.slice(0, -1);
         if (equation.constantTwo.length === 0) {
             equation.constantTwo = null;
