@@ -41,6 +41,9 @@ function operate(constantOne, operator, constantTwo) {
 
 function clearResult() {
     displayResult.textContent = "";
+    equation.constantOne = null;
+    equation.operator = null;
+    equation.constantTwo = null;
 }
 
 function deleteLastInput() {
