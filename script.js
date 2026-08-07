@@ -1,5 +1,6 @@
 const clearButton = document.querySelector("#clear");
 const deleteButton = document.querySelector("#delete");
+const equalsButton = document.querySelector("#equals");
 const numberButtons = document.querySelectorAll(".num");
 const operatorButtons = document.querySelectorAll(".operator");
 
@@ -8,31 +9,36 @@ let displayResult = document.querySelector("#result");
 const equation = {
     constantOne: null,
     operator: null,
-    constantTwo: null
+    constantTwo: null,
+    result: null
 }
 
 function add(constantOne, constantTwo) {
-    return constantOne + constantTwo;
+    equation.result = parseFloat(constantOne) + parseFloat(constantTwo);
+    displayResult.textContent = equation.result;
 }
 
 function subtract(constantOne, constantTwo) {
-    return constantOne - constantTwo;
+    equation.result = parseFloat(constantOne) - parseFloat(constantTwo);
+    displayResult.textContent = equation.result;
 }
 
 function multiply(constantOne, constantTwo) {
-    return constantOne * constantTwo;
+    equation.result = parseFloat(constantOne) * parseFloat(constantTwo);
+    displayResult.textContent = equation.result;
 }
 
 function divide(constantOne, constantTwo) {
-    return constantOne / constantTwo;
+    equation.result = parseFloat(constantOne) / parseFloat(constantTwo);
+    displayResult.textContent = equation.result;
 }
 
 function operate(constantOne, operator, constantTwo) {
-    if (operator === "+") {
+    if (operator === "\u002B") {
         add(constantOne, constantTwo);
-    } else if (operator === "-") {
+    } else if (operator === "\u2212") {
         subtract(constantOne, constantTwo);
-    } else if (operator === "*") {
+    } else if (operator === "\u00D7") {
         multiply(constantOne, constantTwo);
     } else {
         divide(constantOne, constantTwo);
@@ -101,4 +107,8 @@ operatorButtons.forEach(button => {
     button.addEventListener("click", () => {
         updateOperator(button.textContent);
     })
+})
+
+equalsButton.addEventListener("click", () => {
+    operate(equation.constantOne, equation.operator, equation.constantTwo);
 })
