@@ -10,27 +10,26 @@ const equation = {
     constantOne: null,
     operator: null,
     constantTwo: null,
-    result: null
 }
 
 function add(constantOne, constantTwo) {
-    equation.result = parseFloat(constantOne) + parseFloat(constantTwo);
-    displayResult.textContent = equation.result;
+    displayResult.textContent = parseFloat(constantOne) + parseFloat(constantTwo);;
+    resetEquation();
 }
 
 function subtract(constantOne, constantTwo) {
-    equation.result = parseFloat(constantOne) - parseFloat(constantTwo);
-    displayResult.textContent = equation.result;
+    displayResult.textContent = parseFloat(constantOne) - parseFloat(constantTwo);;
+    resetEquation();
 }
 
 function multiply(constantOne, constantTwo) {
-    equation.result = parseFloat(constantOne) * parseFloat(constantTwo);
-    displayResult.textContent = equation.result;
+    displayResult.textContent = parseFloat(constantOne) * parseFloat(constantTwo);;
+    resetEquation();
 }
 
 function divide(constantOne, constantTwo) {
-    equation.result = parseFloat(constantOne) / parseFloat(constantTwo);
-    displayResult.textContent = equation.result;
+    displayResult.textContent = parseFloat(constantOne) / parseFloat(constantTwo);;
+    resetEquation();
 }
 
 function operate(constantOne, operator, constantTwo) {
@@ -47,9 +46,7 @@ function operate(constantOne, operator, constantTwo) {
 
 function clearResult() {
     displayResult.textContent = "";
-    equation.constantOne = null;
-    equation.operator = null;
-    equation.constantTwo = null;
+    resetEquation();
 }
 
 function deleteLastInput() {
@@ -71,6 +68,10 @@ function deleteLastInput() {
 }
 
 function updateDisplay(buttonContent) {
+    if (equation.constantOne === null) {
+        displayResult.textContent = "";
+    }
+
     if (equation.operator === null) {
         displayResult.textContent += buttonContent;
         equation.constantOne = displayResult.textContent;
@@ -92,6 +93,12 @@ function updateOperator(operator) {
         displayResult.textContent += operator;
         equation.operator = operator;
     }
+}
+
+function resetEquation() {
+    equation.constantOne = null;
+    equation.operator = null;
+    equation.constantTwo = null;
 }
 
 clearButton.addEventListener("click", clearResult);
