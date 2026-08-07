@@ -13,22 +13,22 @@ const equation = {
 }
 
 function add(constantOne, constantTwo) {
-    displayResult.textContent = parseFloat(constantOne) + parseFloat(constantTwo);;
+    displayResult.textContent = parseFloat(constantOne) + parseFloat(constantTwo);
     resetEquation();
 }
 
 function subtract(constantOne, constantTwo) {
-    displayResult.textContent = parseFloat(constantOne) - parseFloat(constantTwo);;
+    displayResult.textContent = parseFloat(constantOne) - parseFloat(constantTwo);
     resetEquation();
 }
 
 function multiply(constantOne, constantTwo) {
-    displayResult.textContent = parseFloat(constantOne) * parseFloat(constantTwo);;
+    displayResult.textContent = parseFloat(constantOne) * parseFloat(constantTwo);
     resetEquation();
 }
 
 function divide(constantOne, constantTwo) {
-    displayResult.textContent = parseFloat(constantOne) / parseFloat(constantTwo);;
+    displayResult.textContent = parseFloat(constantOne) / parseFloat(constantTwo);
     resetEquation();
 }
 
