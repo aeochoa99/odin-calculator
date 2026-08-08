@@ -15,36 +15,36 @@ const equation = {
 
 function add(constantOne, constantTwo) {
     equation.result = parseFloat(constantOne) + parseFloat(constantTwo);
-    displayResult.textContent = equation.result;
+    displayResult.textContent = Math.round(equation.result * 100) / 100;
     resetEquation();
-    if (equation.result) {
+    if (equation.result != null) {
         equation.constantOne = String(equation.result);
     }
 }
 
 function subtract(constantOne, constantTwo) {
     equation.result = parseFloat(constantOne) - parseFloat(constantTwo);
-    displayResult.textContent = equation.result;
+    displayResult.textContent = Math.round(equation.result * 100) / 100;
     resetEquation();
-    if (equation.result) {
+    if (equation.result != null) {
         equation.constantOne = String(equation.result);
     }
 }
 
 function multiply(constantOne, constantTwo) {
     equation.result = parseFloat(constantOne) * parseFloat(constantTwo);
-    displayResult.textContent = equation.result;
+    displayResult.textContent = Math.round(equation.result * 100) / 100;
     resetEquation();
-    if (equation.result) {
+    if (equation.result != null) {
         equation.constantOne = String(equation.result);
     }
 }
 
 function divide(constantOne, constantTwo) {
     equation.result = parseFloat(constantOne) / parseFloat(constantTwo);
-    displayResult.textContent = equation.result;
+    displayResult.textContent = Math.round(equation.result * 100) / 100;
     resetEquation();
-    if (equation.result) {
+    if (equation.result != null) {
         equation.constantOne = String(equation.result);
     }
 }
