@@ -23,8 +23,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    height: 400px;
-    width: 320px;
+    height: 410px;
+    width: 330px;
     padding: 10px;
     background-color: #102116;
     border: 2px solid #23402B;
@@ -33,7 +33,7 @@ body {
 .display {
     display: flex;
     justify-content: flex-end;
-    height: 65px;
+    height: 70px;
     background-color: #001B00;
     border: 2px solid #23402B;
 }
@@ -41,8 +41,9 @@ body {
 .display > p {
     font-size: 40px;
     align-self: flex-end;
-    padding: 0px 5px 5px 0px;
+    padding: 0px 7px 5px 7px;
     color: #7CFF6B;
+    overflow: auto;
 }
 
 .buttons {
