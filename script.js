@@ -6,6 +6,8 @@ const operatorButtons = document.querySelectorAll(".operator");
 
 let displayResult = document.querySelector("#result");
 
+equalsButton.disabled = true;
+
 const equation = {
     constantOne: null,
     operator: null,
@@ -20,6 +22,7 @@ function add(constantOne, constantTwo) {
     if (equation.result != null) {
         equation.constantOne = String(equation.result);
     }
+    equalsButton.disabled = true;
 }
 
 function subtract(constantOne, constantTwo) {
@@ -29,6 +32,7 @@ function subtract(constantOne, constantTwo) {
     if (equation.result != null) {
         equation.constantOne = String(equation.result);
     }
+    equalsButton.disabled = true;
 }
 
 function multiply(constantOne, constantTwo) {
@@ -38,6 +42,7 @@ function multiply(constantOne, constantTwo) {
     if (equation.result != null) {
         equation.constantOne = String(equation.result);
     }
+    equalsButton.disabled = true;
 }
 
 function divide(constantOne, constantTwo) {
@@ -47,6 +52,7 @@ function divide(constantOne, constantTwo) {
     if (equation.result != null) {
         equation.constantOne = String(equation.result);
     }
+    equalsButton.disabled = true;
 }
 
 function operate(constantOne, operator, constantTwo) {
@@ -85,6 +91,7 @@ function deleteLastInput() {
 }
 
 function updateDisplay(buttonContent) {
+    equalsButton.disabled = true;
     if (equation.constantOne === null) {
         displayResult.textContent = "";
     }
@@ -93,6 +100,7 @@ function updateDisplay(buttonContent) {
         displayResult.textContent += buttonContent;
         equation.constantOne = displayResult.textContent;
     } else {
+        equalsButton.disabled = false;
         displayResult.textContent += buttonContent;
         if (equation.constantTwo === null) {
             equation.constantTwo = "";
