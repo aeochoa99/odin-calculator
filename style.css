@@ -79,7 +79,7 @@ div > button {
     border: 3px solid #23402B;
 }
 
-.operator {
+.operator, #decimal {
     background-color: #2E8B57;
     color: #FFFFFF;
     border: 3px solid #23402B;
@@ -103,7 +103,7 @@ div > button {
     border: 3px solid #2F5C38;
 }
 
-.operator:hover {
+.operator:hover, #decimal:hover {
     background-color: #3FBF74;
     border: 3px solid #52D98A;
 }

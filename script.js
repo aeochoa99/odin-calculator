@@ -1,6 +1,7 @@
 const clearButton = document.querySelector("#clear");
 const deleteButton = document.querySelector("#delete");
 const equalsButton = document.querySelector("#equals");
+const decimalButton = document.querySelector("#decimal");
 const numberButtons = document.querySelectorAll(".num");
 const operatorButtons = document.querySelectorAll(".operator");
 
@@ -23,6 +24,7 @@ function add(constantOne, constantTwo) {
         equation.constantOne = String(equation.result);
     }
     equalsButton.disabled = true;
+    decimalButton.disabled = false;
 }
 
 function subtract(constantOne, constantTwo) {
@@ -33,6 +35,7 @@ function subtract(constantOne, constantTwo) {
         equation.constantOne = String(equation.result);
     }
     equalsButton.disabled = true;
+    decimalButton.disabled = false;
 }
 
 function multiply(constantOne, constantTwo) {
@@ -43,6 +46,7 @@ function multiply(constantOne, constantTwo) {
         equation.constantOne = String(equation.result);
     }
     equalsButton.disabled = true;
+    decimalButton.disabled = false;
 }
 
 function divide(constantOne, constantTwo) {
@@ -60,6 +64,7 @@ function divide(constantOne, constantTwo) {
         equation.constantOne = String(equation.result);
     }
     equalsButton.disabled = true;
+    decimalButton.disabled = false;
 }
 
 function operate(constantOne, operator, constantTwo) {
@@ -103,13 +108,19 @@ function deleteLastInput() {
 
 function updateDisplay(buttonContent) {
     equalsButton.disabled = true;
+    decimalButton.disabled = false;
+    
     if (equation.constantOne === null) {
         displayResult.textContent = "";
     }
 
     if (equation.operator === null) {
+        equation.constantOne = "";
         displayResult.textContent += buttonContent;
         equation.constantOne = displayResult.textContent;
+        if (equation.constantOne.includes(".")) {
+            decimalButton.disabled = true;
+        }
     } else {
         equalsButton.disabled = false;
         displayResult.textContent += buttonContent;
@@ -117,6 +128,9 @@ function updateDisplay(buttonContent) {
             equation.constantTwo = "";
         }
         equation.constantTwo += buttonContent;
+        if (equation.constantTwo.includes(".")) {
+            decimalButton.disabled = true;
+        }
     }
 }
 
@@ -133,6 +147,7 @@ function updateOperator(operator) {
         displayResult.textContent += operator;
         equation.operator = operator;
     }
+    decimalButton.disabled = false;
 }
 
 function resetEquation() {
@@ -158,4 +173,8 @@ operatorButtons.forEach(button => {
 
 equalsButton.addEventListener("click", () => {
     operate(equation.constantOne, equation.operator, equation.constantTwo);
+})
+
+decimalButton.addEventListener("click", () => {
+    updateDisplay(decimalButton.textContent);
 })
