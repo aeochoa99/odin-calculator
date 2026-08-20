@@ -80,6 +80,10 @@ function clearResult() {
 }
 
 function deleteLastInput() {
+    if (equation.constantOne === null) {
+        return;
+    }
+
     displayResult.textContent = displayResult.textContent.slice(0, -1);
 
     if (equation.operator === null) {
