@@ -41,9 +41,16 @@ function multiply(constantOne, constantTwo) {
 }
 
 function divide(constantOne, constantTwo) {
+    if (parseFloat(constantTwo) === 0) {
+        displayResult.textContent = "Nice try.";
+        resetEquation();
+        return;
+    }
+
     equation.result = parseFloat(constantOne) / parseFloat(constantTwo);
     displayResult.textContent = Math.round(equation.result * 100) / 100;
     resetEquation();
+
     if (equation.result != null) {
         equation.constantOne = String(equation.result);
     }
