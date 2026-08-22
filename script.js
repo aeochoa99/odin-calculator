@@ -132,6 +132,8 @@ function updateOperator(operator) {
 
     if (displayResult.textContent != "") {
         equation.constantOne = displayResult.textContent;
+    } else {
+        return;
     }
 
     if (equation.operator === null) {
