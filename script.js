@@ -20,9 +20,6 @@ function add(constantOne, constantTwo) {
     equation.result = parseFloat(constantOne) + parseFloat(constantTwo);
     displayResult.textContent = Math.round(equation.result * 100) / 100;
     resetEquation();
-    if (equation.result != null) {
-        equation.constantOne = String(equation.result);
-    }
     equalsButton.disabled = true;
     decimalButton.disabled = false;
 }
@@ -31,9 +28,6 @@ function subtract(constantOne, constantTwo) {
     equation.result = parseFloat(constantOne) - parseFloat(constantTwo);
     displayResult.textContent = Math.round(equation.result * 100) / 100;
     resetEquation();
-    if (equation.result != null) {
-        equation.constantOne = String(equation.result);
-    }
     equalsButton.disabled = true;
     decimalButton.disabled = false;
 }
@@ -42,9 +36,6 @@ function multiply(constantOne, constantTwo) {
     equation.result = parseFloat(constantOne) * parseFloat(constantTwo);
     displayResult.textContent = Math.round(equation.result * 100) / 100;
     resetEquation();
-    if (equation.result != null) {
-        equation.constantOne = String(equation.result);
-    }
     equalsButton.disabled = true;
     decimalButton.disabled = false;
 }
@@ -60,9 +51,6 @@ function divide(constantOne, constantTwo) {
     displayResult.textContent = Math.round(equation.result * 100) / 100;
     resetEquation();
 
-    if (equation.result != null) {
-        equation.constantOne = String(equation.result);
-    }
     equalsButton.disabled = true;
     decimalButton.disabled = false;
 }
@@ -82,14 +70,17 @@ function operate(constantOne, operator, constantTwo) {
 function clearResult() {
     displayResult.textContent = "";
     resetEquation();
+    decimalButton.disabled = false;
 }
 
 function deleteLastInput() {
+    if (displayResult.textContent != "") {
+      displayResult.textContent = displayResult.textContent.slice(0, -1);  
+    }
+
     if (equation.constantOne === null) {
         return;
     }
-
-    displayResult.textContent = displayResult.textContent.slice(0, -1);
 
     if (equation.operator === null) {
         equation.constantOne = equation.constantOne.slice(0, -1);
@@ -139,6 +130,10 @@ function updateOperator(operator) {
         operate(equation.constantOne, equation.operator, equation.constantTwo);
     }
 
+    if (displayResult.textContent != "") {
+        equation.constantOne = displayResult.textContent;
+    }
+
     if (equation.operator === null) {
         displayResult.textContent += operator;
         equation.operator = operator;
@@ -154,6 +149,7 @@ function resetEquation() {
     equation.constantOne = null;
     equation.operator = null;
     equation.constantTwo = null;
+    decimalButton.disabled = true;
 }
 
 clearButton.addEventListener("click", clearResult);
