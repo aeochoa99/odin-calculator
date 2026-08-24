@@ -4,6 +4,9 @@ This is a browser-based calculator that I built as part of The Odin Project Foun
 
 ![Calculator screenshot](./demos/demo-1.png)
 
+## Live demo
+[Try it!](https://aeochoa99.github.io/odin-calculator/)
+
 ## Features
 
 * Addition, subtraction, multiplication, division
